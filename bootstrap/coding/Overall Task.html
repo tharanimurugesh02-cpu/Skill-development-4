@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrunchyBites | Partner Dashboard</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    /* Keeps slider images neat and darkens them slightly so text stands out */
+    .hero-carousel img {
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+    
+    /* Ensures all food cards maintain identical image heights */
+    .food-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    /* Overrides default slide-down animation to create a clean Zoom/Scale effect */
+    .zoom-anim .modal-dialog {
+      transform: scale(0.8);
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+    .zoom-anim.show .modal-dialog {
+      transform: scale(1);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="#">🍕 CrunchyBites India</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#menu-section">Menu Items</a></li>
+          <li class="nav-item"><a class="nav-link" href="#orders-section">Live Orders</a></li>
+          <li class="nav-item"><a class="nav-link" href="#settings-section">Kitchen Config</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="promoCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="4000">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Promo 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="fw-bold text-warning">Weekend Food Carnival Live!</h1>
+          <p class="fs-5">Manage high-volume demands with optimized pipeline controls.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Promo 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="fw-bold text-warning">Instant 20% Slash Activated</h1>
+          <p class="fs-5">Coupons automatically pushed to active user cards across town.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+
+    <section id="menu-section" class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-dark fw-bold">Active Kitchen Menu</h3>
+        <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#filterPanel">
+          ⚙️ Toggle Advanced Filters
+        </button>
+      </div>
+
+      <div class="collapse mb-4" id="filterPanel">
+        <div class="card card-body border-warning bg-warning-subtle shadow-sm">
+          <h6 class="fw-bold">Filter by Preferences (Checkboxes):</h6>
+          <div class="d-flex gap-3 mt-2">
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="c1" checked><label class="form-check-label" for="c1">Fast Food</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="c2"><label class="form-check-label" for="c2">Desserts</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="c3" checked><label class="form-check-label" for="c3">Beverages</label></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm food-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Burger">
+            <div class="card-body">
+              <span class="badge bg-danger mb-2">Best Seller</span>
+              <h5 class="card-title fw-bold">Smoky Cheese Burger</h5>
+              <p class="card-text text-muted small">Flame-grilled beef patty, cheddar slice, customized house sauce.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="fs-5 fw-bold text-success">₹249</span>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm food-card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Pizza">
+            <div class="card-body">
+              <span class="badge bg-success mb-2">Vegetarian</span>
+              <h5 class="card-title fw-bold">Rustic Margherita Pizza</h5>
+              <p class="card-text text-muted small">Fresh basil leaves, authentic buffalo mozzarella, extra virgin olive oil drops.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="fs-5 fw-bold text-success">₹499</span>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm food-card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Donut">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Sweet Tooth</span>
+              <h5 class="card-title fw-bold">Glazed Berry Donut Stack</h5>
+              <p class="card-text text-muted small">Fluffy dough dipped in strawberry infusion, topped with premium dark sprinkles.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="fs-5 fw-bold text-success">180</span>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="orders-section" class="mb-5 pt-3">
+      <h3 class="text-dark fw-bold mb-4">Live Order Stream Management</h3>
+      <div class="card p-4 shadow-sm">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Address Delivery Target</th>
+                <th scope="col">Bill Amount</th>
+                <th scope="col">Live Dispatch Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-success">
+                <th scope="row">#CB-2041</th>
+                <td>Arun Kumar</td>
+                <td>T-Nagar, Chennai</td>
+                <td>₹750.00</td>
+                <td><span class="badge bg-success">Delivered Successfully</span></td>
+              </tr>
+              <tr class="table-warning">
+                <th scope="row">#CB-2042</th>
+                <td>Suresh Raina</td>
+                <td>Adyar, Chennai</td>
+                <td>₹520.00</td>
+                <td><span class="badge bg-warning text-dark">Rider Out For Delivery</span></td>
+              </tr>
+              <tr class="table-danger">
+                <th scope="row">#CB-2043</th>
+                <td>Meera Jasmine</td>
+                <td>Velachery, Chennai</td>
+                <td>₹1,280.00</td>
+                <td><span class="badge bg-danger">Order Cancelled (No Stock)</span></td>
+              </tr>
+              <tr class="table-info">
+                <th scope="row">#CB-2044</th>
+                <td>Vikram Seth</td>
+                <td>OMR, Chennai</td>
+                <td>₹340.00</td>
+                <td><span class="badge bg-info text-dark">Kitchen Preparing Food</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <nav class="mt-3">
+          <ul class="pagination justify-content-center mb-0">
+            <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section id="settings-section" class="pt-3">
+      <h3 class="text-dark fw-bold mb-4">Kitchen Gateway Configuration</h3>
+      <div class="card p-4 shadow-sm bg-white">
+        
+        <form class="needs-validation" novalidate>
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="f1" placeholder="Kitchen Name" required>
+                <label for="f1">Manager Operational Identity</label>
+                <div class="invalid-feedback">Manager Identity tag field cannot be left blank.</div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="form-floating">
+                <input type="email" class="form-control" id="f2" placeholder="Email" required>
+                <label for="f2">Alert Target Email Routing</label>
+                <div class="invalid-feedback">Provide a valid email format routing path.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">Gateway Endpoint Override URL</span>
+            <span class="input-group-text">https://api.crunchybites.in/</span>
+            <input type="text" class="form-control" placeholder="kitchen-chennai-04" required>
+            <div class="invalid-feedback">Endpoint routing parameter string required.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="radiusRange" class="form-label fw-bold">Active Delivery Dispatch Radius: <span class="badge bg-dark ms-1"><span id="rangeVal">5</span> KM</span></label>
+            <input type="range" class="form-range" min="1" max="25" step="1" id="radiusRange" value="5" oninput="document.getElementById('rangeVal').innerText=this.value">
+          </div>
+
+          <div class="mb-4 bg-light p-3 rounded border">
+            <h6 class="fw-bold text-secondary mb-3">Automated System Triggers (Switches)</h6>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" id="s1" checked>
+              <label class="form-check-label" for="s1">Accept New Incoming Orders Globally</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="s2">
+              <label class="form-check-label" for="s2">Route Surge Pricing Multiplexers (+₹40 Night Fee Active)</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-warning w-100 py-2 fw-bold text-dark shadow-sm">Save Config Parameters & Sync System</button>
+        </form>
+
+      </div>
+    </section>
+
+  </div>
+
+  <div class="modal fade zoom-anim" id="editItemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title fw-bold">Edit Item Metrics</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small">Update localized parameters for this culinary inventory object instantly.</p>
+          
+          <div class="mb-3">
+            <label class="form-label">Pricing Matrix</label>
+            <div class="input-group">
+              <span class="input-group-text">₹</span>
+              <input type="number" class="form-control" value="249">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Select Availability Status (Small Size)</label>
+            <select class="form-select form-select-sm">
+              <option value="1" selected>Instantly Available</option>
+              <option value="2">Out of Stock (Temp Locked)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Disabled Metric Profile Reference</label>
+            <select class="form-select" disabled>
+              <option>GST Registry Module Locked</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Commit Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+    (() => {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+</body>
+</html>
