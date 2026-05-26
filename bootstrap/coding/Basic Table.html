@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5 Striped Table</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h3 class="text-dark mb-2">User Management Directory</h3>
+          <p class="text-muted mb-4">A basic responsive table layout featuring zebra-striping and hover states.</p>
+          
+          <div class="table-responsive">
+            
+            <table class="table table-striped table-hover align-middle">
+              
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col"># ID</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Email Address</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <th scope="row">101</th>
+                  <td>Arun Kumar</td>
+                  <td>arun.kumar@example.com</td>
+                  <td>Lead Developer</td>
+                  <td><span class="badge bg-success">Active</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">102</th>
+                  <td>Jessica Taylor</td>
+                  <td>jessica.t@example.com</td>
+                  <td>UI/UX Designer</td>
+                  <td><span class="badge bg-success">Active</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">103</th>
+                  <td>Mohamed Rizwan</td>
+                  <td>rizwan.m@example.com</td>
+                  <td>QA Engineer</td>
+                  <td><span class="badge bg-warning text-dark">Pending</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">104</th>
+                  <td>Priya Sharma</td>
+                  <td>priya.s@example.com</td>
+                  <td>Product Manager</td>
+                  <td><span class="badge bg-danger">Inactive</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">105</th>
+                  <td>David Miller</td>
+                  <td>david.m@example.com</td>
+                  <td>DevOps Specialist</td>
+                  <td><span class="badge bg-success">Active</span></td>
+                </tr>
+              </tbody>
+
+            </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
