@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+    /* Custom CSS to transform the default slide-down effect into a smooth Zoom/Scale animation */
+    .modal.zoom-anim .modal-dialog {
+      transform: scale(0.7);
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+    .modal.zoom-anim.show .modal-dialog {
+      transform: scale(1);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="text-center bg-white p-5 rounded shadow-lg col-md-6">
+      <h3 class="mb-3 text-dark font-weight-bold">All-in-One Bootstrap Modal</h3>
+      <p class="text-muted mb-4">Click below to experience a custom animated, vertically centered, and scrollable modal layout.</p>
+      
+      <button type="button" class="btn btn-danger btn-lg px-5 shadow" data-bs-toggle="modal" data-bs-target="#customAllInOneModal">
+        Launch Live Demo
+      </button>
+    </div>
+  </div>
+
+  <div class="modal fade zoom-anim" id="customAllInOneModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content shadow-lg border-0">
+        
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="modalTitle">Terms & Conditions Agreement</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body px-4 py-3">
+          <p class="fw-bold text-secondary">Please review our usage policies thoroughly before proceeding:</p>
+          <hr>
+          <p><strong>1. Smooth Zoom Animation:</strong> Notice how the modal scales smoothly up from the center when it opens, rather than dropping abruptly from the top of the viewport. We achieved this using a couple of custom CSS rules on the <code>.zoom-anim</code> class wrapper.</p>
+          
+          <p><strong>2. Centered Alignment:</strong> Thanks to the <code>modal-dialog-centered</code> utility utility, the frame scales dynamically to sit precisely dead-center on desktops, laptops, tablets, and smartphones effortlessly.</p>
+          
+          <p><strong>3. Scrollable Layout:</strong> We added <code>modal-dialog-scrollable</code>. This pins the header and footer firmly in place. Go ahead and scroll up or down inside this panel; only the inner core text area moves, creating a clean mobile-app feel.</p>
+          
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus diam at dolor tempor, id ultrices leo efficitur. Cras pellentesque nunc id nibh eleifend, at accumsan ipsum posuere. Duis ut tristique lorem, vitae consequat nisi.</p>
+          
+          <p>Vestibulum tempor hendrerit feugiat. Suspendisse potenti. Ut elementum tristique massa eget hendrerit. Aliquam ac sapien non sem efficitur pulvinar id eu lorem. Integer at eros hendrerit, scelerisque tellus sed, tempor risus.</p>
+        </div>
+        
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Decline</button>
+          <button type="button" class="btn btn-danger px-4" data-bs-dismiss="modal">I Agree</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

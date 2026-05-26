@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+    /* Custom style to keep image sizes uniform and responsive without distortion */
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover; /* Prevents image stretching */
+    }
+  </style>
+</head>
+<body class="bg-dark">
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+
+        <!-- CAROUSEL START -->
+        <!-- 'data-bs-ride="carousel"' enables automatic sliding -->
+        <!-- 'carousel-fade' adds a smooth fade transition instead of a harsh slide -->
+        <div id="mainHeroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          
+          <!-- 1. Indicators (Bottom Dots/Bars) -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainHeroSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainHeroSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainHeroSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <!-- 2. Carousel Slides (Images & Text Captions) -->
+          <div class="carousel-inner rounded shadow-lg">
+            
+            <!-- Slide 1 (Crucial: The first item MUST have the 'active' class) -->
+            <div class="carousel-item active" data-bs-interval="3000"> <!-- Stays for 3 seconds -->
+              <img src="https://picsum.photos/id/10/1200/500" class="d-block w-100" alt="Beautiful Nature">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Explore the Wilderness</h5>
+                <p>Discover breathtaking views and serene natural landscapes.</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="https://picsum.photos/id/29/1200/500" class="d-block w-100" alt="Tech Workplace">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Modern Workspace</h5>
+                <p>Fueling productivity with organized and sleek technology setups.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="https://picsum.photos/id/26/1200/500" class="d-block w-100" alt="Graphic Design">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Creative Innovations</h5>
+                <p>Building responsive, dynamic, and clean web layouts seamlessly.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3. Controls (Previous & Next Arrow Buttons) -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#mainHeroSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#mainHeroSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+
+        </div>
+        <!-- CAROUSEL END -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle CDN (Required for slide transitions and button clicks) -->
+  
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

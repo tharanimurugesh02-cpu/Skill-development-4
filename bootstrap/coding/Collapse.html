@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        
+        <div class="bg-white p-4 rounded shadow-sm mb-4">
+          <h2 class="text-primary mb-3">Bootstrap 5 Collapse</h2>
+          <p class="text-muted">Click the triggers below to smoothly expand and collapse hidden content panels.</p>
+          <hr>
+
+          <h5 class="text-secondary mb-3">1. Single Element Collapse</h5>
+          <div class="mb-4">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#singleCollapseExample" role="button" aria-expanded="false" aria-controls="singleCollapseExample">
+              Link Trigger
+            </a>
+
+            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#singleCollapseExample" aria-expanded="false" aria-controls="singleCollapseExample">
+              Button Trigger
+            </button>
+          </div>
+
+          <div class="collapse" id="singleCollapseExample">
+            <div class="card card-body bg-light border-primary mb-4">
+              <strong>Boom! Hidden content revealed.</strong> This panel toggles smoothly using Bootstrap's built-in CSS transitions. Both the link above and the button point to this exact same panel using its unique ID.
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h5 class="text-secondary mb-3">2. Multi-Element Target Collapse</h5>
+          <p class="text-muted small">You can toggle individual panels, or use the center button to open/close both at the exact same time.</p>
+          
+          <div class="mb-4">
+            <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapse1" aria-expanded="false" aria-controls="multiCollapse1">Toggle First Panel</button>
+            
+            <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapse1 multiCollapse2">Toggle Both Panels</button>
+            
+            <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapse2" aria-expanded="false" aria-controls="multiCollapse2">Toggle Second Panel</button>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="collapse multi-collapse" id="multiCollapse1">
+                <div class="card card-body bg-success-subtle border-success">
+                  <h5>Panel One</h5>
+                  This content block belongs strictly to the first element group but responds to the master trigger as well.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="collapse multi-collapse" id="multiCollapse2">
+                <div class="card card-body bg-warning-subtle border-warning">
+                  <h5>Panel Two</h5>
+                  This content block belongs strictly to the second element group but responds to the master trigger as well.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+    </div>
+  </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
